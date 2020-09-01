@@ -26,4 +26,28 @@ class Network
 
     actors_by_show
   end
+
+  # WIP: could not finish
+  def shows_by_actor
+    x = get_all_actors.each do |actor|
+      actors_shows = []
+
+      shows.each do |show|
+        inlcudes_actor = show.characters.any? do |char|
+            char.actor == "David Hasselhoff"
+        end
+        actors_shows << show if inlcudes_actor
+      end
+    end
+require 'pry'; binding.pry
+x
+  end
+
+  private
+
+  def get_all_actors
+    all_actors = shows.map(&:characters).flatten
+
+    all_actors.map(&:actor).uniq
+  end
 end
