@@ -9,4 +9,10 @@ class Network
   def add_show(show)
     shows << show
   end
+
+  def main_characters
+    main_characters = shows.map(&:characters)
+
+    main_characters.flatten
+  end
 end
