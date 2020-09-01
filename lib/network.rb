@@ -15,4 +15,15 @@ class Network
 
     main_characters.flatten
   end
+
+  def actors_by_show
+    actors_by_show = {}
+
+    shows.each do |show|
+      actors = show.characters.map(&:actor)
+      actors_by_show[show] = actors
+    end
+
+    actors_by_show
+  end
 end
